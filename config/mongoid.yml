@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: pophealth-development
+  database: bonnie-development
 
 test:
   host: <%= ENV['TEST_DB_HOST'] || 'localhost' %>
-  database: pophealth-test
+  database: bonnie-test
 
 # set these environment variables on your prod server
 production:

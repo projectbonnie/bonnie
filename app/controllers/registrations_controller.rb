@@ -1,18 +1,15 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  unless (APP_CONFIG['allow_user_update'])
-    before_filter :authorize_user_update
-    skip_before_filter :require_no_authentication
-  end
+  skip_before_filter :require_no_authentication
 
   # Need bundle info to display the license information
   def new
-    @bundles = mongo['bundles'].find() || []
+    @bundles = MONGO_DB['bundles'].find() || []
     super
   end
 
   def create
-    @bundles = mongo['bundles'].find() || []
+    @bundles = MONGO_DB['bundles'].find() || []
     super
   end
 
@@ -36,10 +33,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_inactive_sign_up_path_for(resource)
     '/approval_needed.html'
-  end
-
-  def authorize_user_update
-    authorize! :manage, resource
   end
 
 end
