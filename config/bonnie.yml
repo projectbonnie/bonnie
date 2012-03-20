@@ -1,0 +1,13 @@
+defaults: &defaults
+  default_user_approved: true
+  
+development:
+  <<: *defaults
+  
+test:
+  <<: *defaults
+  default_user_approved: false
+  
+production:
+  <<: *defaults
+  default_user_approved: false
