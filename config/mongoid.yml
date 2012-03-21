@@ -8,7 +8,7 @@ test:
 
 # set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOID_HOST'] || localhost %>
+  host: <%= ENV['MONGOID_HOST'] || 'localhost'%>
   port: <%= ENV['MONGOID_PORT'] || 27017 %>
   database: <%= ENV['MONGOID_DATABASE'] %>  
   <% if (ENV['MONGOID_USERNAME']) %>username: <%= ENV['MONGOID_USERNAME'] %><% end %>
